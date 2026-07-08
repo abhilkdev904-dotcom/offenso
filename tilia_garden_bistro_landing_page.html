@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilia | Elegant Olive Garden & Bistro</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Theme Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        olive: {
+                            50: '#F4F6F0',
+                            100: '#E9ECDF',
+                            200: '#D2DABB',
+                            300: '#B0BE93',
+                            400: '#8FA16C',
+                            500: '#6E824A', // Core Olive Green
+                            600: '#556539', // Darker Olive Green
+                            700: '#3D4929',
+                            800: '#252C19',
+                            900: '#0F120A'
+                        },
+                        cream: {
+                            50: '#FAF9F5',  // Pure Warm Cream
+                            100: '#F4F2E9', // Soft Muted Cream
+                            200: '#EBE7D8',
+                            900: '#1C1A17'  // Dark Charcoal for premium contrast
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar matching the theme */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF9F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6E824A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #556539;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-cream-900 font-sans selection:bg-olive-200 selection:text-olive-900 overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="font-serif text-2xl md:text-3xl font-semibold tracking-wide text-olive-800 transition-colors duration-300 group-hover:text-olive-600">
+                    TILIA
+                </span>
+                <span class="w-2 h-2 rounded-full bg-olive-500 animate-pulse"></span>
+            </a>
+
+            <!-- Desktop Menu Links -->
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide">
+                <a href="#about" class="text-cream-900 hover:text-olive-500 transition-colors duration-200 py-2 border-b border-transparent hover:border-olive-500">About</a>
+                <a href="#philosophy" class="text-cream-900 hover:text-olive-500 transition-colors duration-200 py-2 border-b border-transparent hover:border-olive-500">Philosophy</a>
+                <a href="#menu" class="text-cream-900 hover:text-olive-500 transition-colors duration-200 py-2 border-b border-transparent hover:border-olive-500">Our Menu</a>
+                <a href="#experience" class="text-cream-900 hover:text-olive-500 transition-colors duration-200 py-2 border-b border-transparent hover:border-olive-500">The Cafe</a>
+                <a href="#testimonials" class="text-cream-900 hover:text-olive-500 transition-colors duration-200 py-2 border-b border-transparent hover:border-olive-500">Reviews</a>
+            </nav>
+
+            <!-- Reservation Button -->
+            <div class="hidden md:block">
+                <a href="#reserve" class="px-6 py-2.5 bg-olive-500 hover:bg-olive-600 text-white font-medium text-sm rounded-full tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-olive-500/20">
+                    Reserve Table
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden flex flex-col justify-between w-6 h-5 text-olive-800 focus:outline-none" aria-label="Toggle Menu">
+                <span class="w-full h-0.5 bg-current transition-all duration-300 origin-left" id="bar1"></span>
+                <span class="w-full h-0.5 bg-current transition-all duration-300" id="bar2"></span>
+                <span class="w-full h-0.5 bg-current transition-all duration-300 origin-left" id="bar3"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-drawer" class="fixed inset-0 bg-cream-50 z-40 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-center items-center space-y-8 md:hidden">
+            <a href="#about" class="mobile-nav-link text-2xl font-serif hover:text-olive-500 transition-colors">About</a>
+            <a href="#philosophy" class="mobile-nav-link text-2xl font-serif hover:text-olive-500 transition-colors">Philosophy</a>
+            <a href="#menu" class="mobile-nav-link text-2xl font-serif hover:text-olive-500 transition-colors">Our Menu</a>
+            <a href="#experience" class="mobile-nav-link text-2xl font-serif hover:text-olive-500 transition-colors">The Cafe</a>
+            <a href="#testimonials" class="mobile-nav-link text-2xl font-serif hover:text-olive-500 transition-colors">Reviews</a>
+            <a href="#reserve" class="mobile-nav-link px-8 py-3 bg-olive-500 text-white rounded-full text-lg hover:bg-olive-600 transition-all duration-300">
+                Book a Table
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-16 md:py-0 overflow-hidden bg-gradient-to-br from-cream-50 via-cream-100 to-olive-100">
+        <!-- Floating organic aesthetic shapes -->
+        <div class="absolute top-1/4 -left-12 w-64 h-64 bg-olive-200/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/12 -right-12 w-96 h-96 bg-olive-300/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Hero Text Block (Left) -->
+            <div class="lg:col-span-6 space-y-6 text-center lg:text-left">
+                <span class="inline-flex items-center space-x-2 px-3 py-1 bg-olive-100 text-olive-700 rounded-full text-xs font-semibold uppercase tracking-wider animate-bounce">
+                    <i class="fa-solid fa-seedling"></i>
+                    <span>Fresh & Organic Daily</span>
+                </span>
+                
+                <h1 class="font-serif text-5xl md:text-6xl xl:text-7xl text-cream-900 leading-tight">
+                    Where slow <span class="italic text-olive-600">dining</span> meets serene <span class="font-light">aesthetics</span>
+                </h1>
+                
+                <p class="text-gray-600 text-base md:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Settle into an oasis of olive-dappled sunlight. Discover artisan, slow-cooked pastas, house-baked pastries, and bespoke botanic infusions, crafted within a space designed for calm.
+                </p>
+
+                <!-- CTA Actions -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#reserve" class="w-full sm:w-auto px-8 py-4 bg-olive-500 hover:bg-olive-600 text-white text-center font-medium rounded-full transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-olive-500/20 flex justify-center items-center gap-2 group">
+                        <span>Book a Table</span>
+                        <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    </a>
+                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-white/80 hover:bg-white text-olive-800 text-center font-medium rounded-full border border-olive-200/50 transition-all duration-300 shadow-sm flex justify-center items-center gap-2">
+                        <span>Explore Menu</span>
+                    </a>
+                </div>
+
+                <!-- Info Badges -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-olive-200/40 max-w-md mx-auto lg:mx-0">
+                    <div>
+                        <p class="font-serif text-3xl font-semibold text-olive-700">100%</p>
+                        <p class="text-xs uppercase text-gray-500 tracking-wider">Organic Wheat</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-3xl font-semibold text-olive-700">0km</p>
+                        <p class="text-xs uppercase text-gray-500 tracking-wider">Garden Herbs</p>
+                    </div>
+                    <div>
+                        <p class="font-serif text-3xl font-semibold text-olive-700">4.9★</p>
+                        <p class="text-xs uppercase text-gray-500 tracking-wider">Customer Rating</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Block with Pasta (Right) -->
+            <div class="lg:col-span-6 relative flex justify-center">
+                <!-- Circular Backdrop styling -->
+                <div class="absolute inset-0 w-80 h-80 sm:w-96 sm:h-96 md:w-[450px] md:h-[450px] rounded-full border border-olive-500/10 self-center mx-auto my-auto animate-spin-slow pointer-events-none"></div>
+                <div class="absolute inset-4 w-72 h-72 sm:w-88 sm:h-88 md:w-[420px] md:h-[420px] rounded-full border-2 border-dashed border-olive-500/20 self-center mx-auto my-auto pointer-events-none"></div>
+                
+                <!-- Main Pasta Photo Showcase -->
+                <div class="relative z-10 w-72 h-72 sm:w-96 sm:h-96 md:w-[420px] md:h-[420px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform hover:rotate-2 transition-transform duration-500">
+                    <img 
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=80" 
+                        alt="Tilia Artisan Pesto Pasta with fresh olive garnish" 
+                        class="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/800x800/6E824A/FAF9F5?text=Artisan+Pesto+Pasta';"
+                    />
+                    
+                    <!-- Floating Tag overlay -->
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl shadow-xl flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-olive-600 font-semibold tracking-wide uppercase">Signature Dish</p>
+                            <h4 class="font-serif text-lg text-cream-900 font-bold">House Tagliolini al Pesto</h4>
+                        </div>
+                        <span class="text-olive-700 font-serif text-xl font-semibold">$24</span>
+                    </div>
+                </div>
+
+                <!-- Small complementary floating details -->
+                <div class="absolute top-10 right-4 md:right-12 bg-cream-50 p-3 rounded-2xl shadow-lg border border-olive-100 flex items-center gap-3 z-20 animate-bounce" style="animation-duration: 4s;">
+                    <span class="p-2 bg-olive-100 rounded-lg text-olive-600"><i class="fa-solid fa-leaf"></i></span>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400">Basil & Sage</p>
+                        <p class="text-xs font-bold">Home-grown</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About & Cozy Cafe Experience Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Visual Collage of Cafe Interiors (Left) -->
+                <div class="lg:col-span-6 grid grid-cols-12 gap-4 relative">
+                    <!-- Leafy decoration -->
+                    <div class="absolute -top-10 -left-10 text-olive-200 text-7xl opacity-50 select-none">🌿</div>
+                    
+                    <!-- Large Main Cafe Image -->
+                    <div class="col-span-8 rounded-3xl overflow-hidden shadow-lg h-[350px] relative border border-olive-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" 
+                            alt="Aesthetic olive green cafe seating area with warm plants" 
+                            class="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/600x500/6E824A/FAF9F5?text=Cozy+Aesthetic+Cafe';"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <p class="absolute bottom-4 left-4 text-white text-sm font-medium tracking-wide">The Sunlit Solarium</p>
+                    </div>
+
+                    <!-- Second Cafe Image (Offset) -->
+                    <div class="col-span-4 rounded-3xl overflow-hidden shadow-lg h-[220px] mt-12 border border-olive-100">
+                        <img 
+                            src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" 
+                            alt="Minimalist coffee bar setup with aesthetic cream palettes" 
+                            class="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x400/6E824A/FAF9F5?text=Coffee+Bar';"
+                        />
+                    </div>
+
+                    <!-- Third Cafe Image (Bottom Offset) -->
+                    <div class="col-span-5 rounded-3xl overflow-hidden shadow-lg h-[200px] -mt-16 z-10 border-4 border-white">
+                        <img 
+                            src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" 
+                            alt="Aesthetic coffee break under olive shadow" 
+                            class="w-full h-full object-cover hover:scale-105 transition-all duration-500"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x300/6E824A/FAF9F5?text=Artisan+Latte';"
+                        />
+                    </div>
+
+                    <!-- Small aesthetic stat highlight inside the collage -->
+                    <div class="col-span-7 bg-olive-50 p-6 rounded-3xl shadow-sm border border-olive-100/60 -mt-8 flex flex-col justify-center">
+                        <span class="text-olive-700 font-serif text-3xl font-semibold">9:00 AM - 10:00 PM</span>
+                        <p class="text-xs uppercase text-olive-800 tracking-wider mt-1">Our Daily Sanctuary Hours</p>
+                    </div>
+                </div>
+
+                <!-- Story Text Block (Right) -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-olive-500 text-sm font-semibold uppercase tracking-wider block">THE TILIA EXPERIENCE</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-cream-900 leading-tight">
+                        Our space is designed for lingering conversations.
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        At Tilia, we wanted to build a sanctuary away from the hurried pulse of everyday life. Wrapped in natural textures, calming olive palettes, and light linen finishes, our cafe and dining garden is the ideal backdrop to share culinary artistry.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        Every single leaf, dish, and cup of artisan coffee is crafted with direct connection to our sustainable ethos. We invite you to sit back, breathe in the fresh sage, and enjoy the visual poetry of slow living.
+                    </p>
+
+                    <div class="flex items-center gap-6 pt-4">
+                        <div class="flex items-center space-x-3">
+                            <span class="w-12 h-12 rounded-full bg-olive-50 flex items-center justify-center text-olive-600 border border-olive-100">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                            </span>
+                            <div>
+                                <h5 class="text-sm font-semibold text-cream-900">Locally Sourced</h5>
+                                <p class="text-xs text-gray-500">From farm directly to fork</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="w-12 h-12 rounded-full bg-olive-50 flex items-center justify-center text-olive-600 border border-olive-100">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </span>
+                            <div>
+                                <h5 class="text-sm font-semibold text-cream-900">Slow Brewed</h5>
+                                <p class="text-xs text-gray-500">Pure origin beans roasted local</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Culinary Philosophy / Aesthetic Spotlight -->
+    <section id="philosophy" class="py-24 bg-olive-50 relative overflow-hidden">
+        <!-- Botanical leaf prints layered -->
+        <div class="absolute right-0 top-0 w-80 h-80 bg-olive-100/60 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="text-olive-600 text-sm font-semibold uppercase tracking-wider block">CHEF'S INTEGRITY</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-cream-900">Crafting Muted Harmony On Your Plate</h2>
+                <div class="w-16 h-1 bg-olive-400 mx-auto rounded-full"></div>
+                <p class="text-gray-600 font-light text-sm md:text-base">
+                    Every ingredient must have purpose. We embrace olive oils, fresh gardens, raw ceramics, and simple culinary expressions.
+                </p>
+            </div>
+
+            <!-- Three Pillar Showcase Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Pillar 1: Olive Oils & Pasta -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-olive-100 flex flex-col justify-between h-[450px]">
+                    <div class="space-y-6">
+                        <span class="w-12 h-12 bg-olive-100 text-olive-700 rounded-2xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-droplet"></i>
+                        </span>
+                        <h3 class="font-serif text-2xl text-cream-900 font-semibold">Cold-Pressed Olives</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            We harvest our private estate oil directly from the hills of the Mediterranean, bringing a golden, peppery nuance to all custom pasta dough and pan-sears.
+                        </p>
+                    </div>
+                    <!-- Image preview -->
+                    <div class="w-full h-32 rounded-2xl overflow-hidden mt-6">
+                        <img 
+                            src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=500&q=80" 
+                            alt="Olive oil harvest aesthetics" 
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x200/6E824A/FAF9F5?text=Golden+Olive+Oils';"
+                        />
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Botanic Aesthetics -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-olive-100 flex flex-col justify-between h-[450px]">
+                    <div class="space-y-6">
+                        <span class="w-12 h-12 bg-olive-100 text-olive-700 rounded-2xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </span>
+                        <h3 class="font-serif text-2xl text-cream-900 font-semibold">Botanical Design</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Handcrafted clay dishware, earthy walls, and native olive olive trees bring natural symmetry indoors. A perfect blend of clean Scandinavian style and Italian rustic charm.
+                        </p>
+                    </div>
+                    <!-- Image preview -->
+                    <div class="w-full h-32 rounded-2xl overflow-hidden mt-6">
+                        <img 
+                            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=500&q=80" 
+                            alt="Green botanical lifestyle plants" 
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x200/6E824A/FAF9F5?text=Botanic+Design';"
+                        />
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Hand Rolled Pasta -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-olive-100 flex flex-col justify-between h-[450px]">
+                    <div class="space-y-6">
+                        <span class="w-12 h-12 bg-olive-100 text-olive-700 rounded-2xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-wheat-awn-circle-exclamation"></i>
+                        </span>
+                        <h3 class="font-serif text-2xl text-cream-900 font-semibold">Poured with Intention</h3>
+                        <p class="text-gray-500 text-sm font-light leading-relaxed">
+                            Our flour is milled fine daily, then kneaded exclusively by hand. We believe high-grade, naturally fermented wheat retains flavor profiles and digestibility.
+                        </p>
+                    </div>
+                    <!-- Image preview -->
+                    <div class="w-full h-32 rounded-2xl overflow-hidden mt-6">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=500&q=80" 
+                            alt="Fresh pasta rolling action" 
+                            class="w-full h-full object-cover"
+                            onerror="this.onerror=null; this.src='https://placehold.co/400x200/6E824A/FAF9F5?text=Hand+Rolled+Pasta';"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Menu Section -->
+    <section id="menu" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-olive-600 text-sm font-semibold uppercase tracking-wider block">THE ART OF FLAVOR</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-cream-900 mt-2">Explore the Curated Menu</h2>
+                </div>
+                <!-- Interactive Tabs Category Selector -->
+                <div class="flex items-center space-x-2 bg-olive-50 p-1.5 rounded-full border border-olive-100">
+                    <button onclick="filterMenu('all', this)" class="menu-tab-btn px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-olive-500 text-white shadow-sm">
+                        All Dishes
+                    </button>
+                    <button onclick="filterMenu('pasta', this)" class="menu-tab-btn px-6 py-2.5 rounded-full text-sm font-medium text-olive-800 hover:text-olive-900 transition-all duration-300">
+                        Pasta
+                    </button>
+                    <button onclick="filterMenu('cafe', this)" class="menu-tab-btn px-6 py-2.5 rounded-full text-sm font-medium text-olive-800 hover:text-olive-900 transition-all duration-300">
+                        Cafe & Brews
+                    </button>
+                    <button onclick="filterMenu('bites', this)" class="menu-tab-btn px-6 py-2.5 rounded-full text-sm font-medium text-olive-800 hover:text-olive-900 transition-all duration-300">
+                        Artisan Bakery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Menu Grid Container -->
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Menu Item 1: Pesto Tagliolini (Pasta) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="pasta">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=500&q=80" 
+                            alt="Tagliolini Pesto" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold uppercase text-olive-700 tracking-wider">Signature</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Basil & Sage Tagliolini</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$24</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Pasta • Fresh Herbs</p>
+                        <p class="text-sm text-gray-500 font-light">Fine rolled hand-cut ribbons tossed with estate cold-pressed olive oil, roasted pine nuts, and garden-picked organic sweet basil.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 2: Truffle Ravioli (Pasta) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="pasta">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=500&q=80" 
+                            alt="Truffle Ravioli" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Forest Truffle Ravioli</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$28</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Pasta • Truffle</p>
+                        <p class="text-sm text-gray-500 font-light">Delicate pockets filled with whipped ricotta and wild mushrooms, draped in a light, fragrant white truffle butter sauce.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 3: Pistachio Rose Latte (Cafe) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="cafe">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=500&q=80" 
+                            alt="Artisan Latte" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                        <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold uppercase text-olive-700 tracking-wider">Chef's Choice</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Pistachio Rose Latte</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$7.5</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Brew • Signature Beverage</p>
+                        <p class="text-sm text-gray-500 font-light">House-pressed roasted pistachio milk blended with single-origin espresso and organic wild rosewater botanical syrup.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 4: Rosemary Focaccia (Bites) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="bites">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=500&q=80" 
+                            alt="Herb Focaccia Bread" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Sea Salt Rosemary Focaccia</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$12</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Bakery • Fresh Baked</p>
+                        <p class="text-sm text-gray-500 font-light">Fluffy sourdough focaccia seasoned with coarse Celtic sea salt, sun-roasted olives, and cold-pressed garden rosemary oil.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 5: Lemon Ricotta Crostata (Bites) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="bites">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=500&q=80" 
+                            alt="Lemon Crostata" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Lemon Herb Ricotta Crostata</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$14</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Bakery • Sweet Pastry</p>
+                        <p class="text-sm text-gray-500 font-light">Flaky butter crust filled with light, lemon-scented whipped ricotta and dotted with organic wild berry compote.</p>
+                    </div>
+                </div>
+
+                <!-- Menu Item 6: Sage Botanic Infusion (Cafe) -->
+                <div class="menu-item group bg-cream-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-olive-100/50" data-category="cafe">
+                    <div class="w-full h-64 overflow-hidden relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=500&q=80" 
+                            alt="Organic tea infusion" 
+                            class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                        />
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-serif text-xl font-semibold text-cream-900">Sage & Thyme Botanic Brew</h3>
+                            <span class="text-olive-600 font-serif text-lg font-bold">$6.5</span>
+                        </div>
+                        <p class="text-xs text-olive-700 tracking-wide uppercase">Brew • Botanic Tea</p>
+                        <p class="text-sm text-gray-500 font-light">Soothing herbal blend of garden white sage leaves, wild garden thyme, cold honey, and freshly pressed organic lime juices.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Aesthetic Cafe Gallery & Vibe Showcase -->
+    <section id="experience" class="py-24 bg-cream-100/60 relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto space-y-4 mb-16">
+                <span class="text-olive-600 text-sm font-semibold uppercase tracking-wider block">OUR LIVING ROOM</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-cream-900">Step Inside Our Oasis</h2>
+                <p class="text-gray-500 font-light text-sm md:text-base">
+                    Every corner is curated to bring calming symmetry and organic design. Discover the aesthetics of slow dining.
+                </p>
+            </div>
+
+            <!-- Intertwined Visual Showcase -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative rounded-3xl overflow-hidden h-96 shadow-sm border border-olive-100">
+                    <img 
+                        src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80" 
+                        alt="Minimal plant setup" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x600/6E824A/FAF9F5?text=Botanical';"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs uppercase text-olive-200 tracking-widest">Aesthetic Details</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Lush Table Botanicals</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative rounded-3xl overflow-hidden h-96 shadow-sm border border-olive-100 lg:mt-8">
+                    <img 
+                        src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" 
+                        alt="Cozy sunlit lounge seats" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x600/6E824A/FAF9F5?text=Cozy+Seating';"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs uppercase text-olive-200 tracking-widest">Cozy Spaces</span>
+                        <h4 class="font-serif text-lg text-white font-medium">The Sunlit Lounge</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative rounded-3xl overflow-hidden h-96 shadow-sm border border-olive-100">
+                    <img 
+                        src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" 
+                        alt="Aesthetic cup details" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x600/6E824A/FAF9F5?text=Artistic+Brew';"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs uppercase text-olive-200 tracking-widest">Bespoke Brews</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Single Origin Coffee</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="group relative rounded-3xl overflow-hidden h-96 shadow-sm border border-olive-100 lg:mt-8">
+                    <img 
+                        src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" 
+                        alt="Minimal ceramic bowls" 
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onerror="this.onerror=null; this.src='https://placehold.co/400x600/6E824A/FAF9F5?text=Minimal+Ceramics';"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-xs uppercase text-olive-200 tracking-widest">Handmade Earthware</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Artisanal Ceramic Goods</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Left: Big Typography intro -->
+                <div class="lg:col-span-4 space-y-6">
+                    <span class="text-olive-600 text-sm font-semibold uppercase tracking-wider block">GUEST DIARIES</span>
+                    <h2 class="font-serif text-4xl text-cream-900 leading-tight">Shared memories from our family table.</h2>
+                    <p class="text-gray-500 font-light">
+                        Discover what makes Tilia Garden & Bistro a sanctuary for dining, visual relaxation, and soulful nourishment.
+                    </p>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-olive-500 text-xl font-bold">4.9</span>
+                        <div class="flex text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <span class="text-gray-400 text-xs">(Over 1,200 verified reviews)</span>
+                    </div>
+                </div>
+
+                <!-- Right: Reviews Cards Slider/Grid -->
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Review Card 1 -->
+                    <div class="bg-cream-50 border border-olive-100 p-8 rounded-3xl shadow-sm space-y-6 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="flex text-amber-400 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 font-light italic leading-relaxed text-sm">
+                            "Finding Tilia was like stepping directly into a tranquil Italian greenhouse. The pesto pasta is so fragrant, and the aesthetic cafe corner with green hanging plants made my Sunday breakfast so special."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border border-olive-200">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Sophia Chen" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-cream-900 text-sm">Sophia Chen</h4>
+                                <p class="text-xs text-gray-400">Design Director</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Card 2 -->
+                    <div class="bg-cream-50 border border-olive-100 p-8 rounded-3xl shadow-sm space-y-6 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="flex text-amber-400 text-xs gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 font-light italic leading-relaxed text-sm">
+                            "I'm super particular about hand-made pastas, but Tilia's dough texture and the peppery olive oil was absolutely flawless. Plus, the minimal cream-and-olive color scheme of the interior is incredibly calming."
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full overflow-hidden border border-olive-200">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Mark Thorne" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-serif font-bold text-cream-900 text-sm">Marcus Thorne</h4>
+                                <p class="text-xs text-gray-400">Art Curator & Writer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Reservation & Location Section -->
+    <section id="reserve" class="py-24 bg-olive-50 relative overflow-hidden">
+        <!-- Abstract circular decor element -->
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 border-2 border-dashed border-olive-200 rounded-full pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <!-- Location Info Block (Left) -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-olive-600 text-sm font-semibold uppercase tracking-wider block font-sans">EXPERIENCE TRADITION</span>
+                        <h2 class="font-serif text-4xl md:text-5xl text-cream-900 mt-2">Reserve Your Oasis</h2>
+                    </div>
+
+                    <p class="text-gray-600 font-light leading-relaxed">
+                        Secure your table inside our indoor solarium garden or beneath the dappled sunlight of our courtyard olive trees. Walk-ins are saved on a custom waitlist system, but online booking ensures instant dining.
+                    </p>
+
+                    <!-- Contact details lists -->
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-olive-600 border border-olive-100 shadow-sm shrink-0">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-serif font-semibold text-cream-900 text-sm">Our Garden Address</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">742 Olive Grove Lane, Suite C, Portland, OR</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-olive-600 border border-olive-100 shadow-sm shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-serif font-semibold text-cream-900 text-sm">Direct Table Reservations</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">+1 (503) 843-9821  •  concierge@tiliabistro.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <span class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-olive-600 border border-olive-100 shadow-sm shrink-0">
+                                <i class="fa-solid fa-circle-info"></i>
+                            </span>
+                            <div>
+                                <h4 class="font-serif font-semibold text-cream-900 text-sm">Important Note</h4>
+                                <p class="text-xs text-gray-500 leading-relaxed">For parties larger than 8, please email our boutique events concierge directly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Card Block (Right) -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-olive-100/50">
+                        <h3 class="font-serif text-2xl text-cream-900 font-semibold mb-6">Book a Private Table</h3>
+                        
+                        <!-- Reservation Form -->
+                        <form id="reservationForm" onsubmit="handleReservationSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Full Name -->
+                                <div class="space-y-1.5 text-left">
+                                    <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Your Full Name</label>
+                                    <input 
+                                        type="text" 
+                                        required 
+                                        id="resName"
+                                        placeholder="Sophia Chen" 
+                                        class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all"
+                                    />
+                                </div>
+                                <!-- Email Address -->
+                                <div class="space-y-1.5 text-left">
+                                    <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Email Address</label>
+                                    <input 
+                                        type="email" 
+                                        required 
+                                        id="resEmail"
+                                        placeholder="sophia@design.com" 
+                                        class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <!-- Date Picker -->
+                                <div class="space-y-1.5 text-left">
+                                    <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Select Date</label>
+                                    <input 
+                                        type="date" 
+                                        required 
+                                        id="resDate"
+                                        class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all text-gray-500"
+                                    />
+                                </div>
+                                <!-- Time Picker -->
+                                <div class="space-y-1.5 text-left">
+                                    <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Select Hour</label>
+                                    <select 
+                                        id="resTime"
+                                        class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all text-gray-500"
+                                    >
+                                        <option value="12:00">12:00 PM (Lunch)</option>
+                                        <option value="13:30">01:30 PM (Lunch)</option>
+                                        <option value="17:00">05:00 PM (Dinner)</option>
+                                        <option value="18:30" selected>06:30 PM (Dinner)</option>
+                                        <option value="20:00">08:00 PM (Dinner)</option>
+                                        <option value="21:30">09:30 PM (Dinner)</option>
+                                    </select>
+                                </div>
+                                <!-- Number of Guests -->
+                                <div class="space-y-1.5 text-left">
+                                    <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Party Size</label>
+                                    <select 
+                                        id="resGuests"
+                                        class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all text-gray-500"
+                                    >
+                                        <option value="1">1 Person</option>
+                                        <option value="2" selected>2 Guests</option>
+                                        <option value="4">4 Guests</option>
+                                        <option value="6">6 Guests</option>
+                                        <option value="8">8 Guests</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Special Dietary / Table Request Notes -->
+                            <div class="space-y-1.5 text-left">
+                                <label class="text-xs font-bold text-olive-800 uppercase tracking-wide block">Seating Preference / Special Notes</label>
+                                <textarea 
+                                    rows="3" 
+                                    id="resNotes"
+                                    placeholder="e.g. Patio seating preferred, celebrating an anniversary, gluten-free accommodations." 
+                                    class="w-full px-4 py-3 bg-cream-50 border border-olive-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-olive-400 focus:bg-white text-sm transition-all"
+                                ></textarea>
+                            </div>
+
+                            <!-- Submit reservation button -->
+                            <button 
+                                type="submit" 
+                                class="w-full py-4 bg-olive-500 hover:bg-olive-600 text-white font-medium rounded-xl tracking-wide transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-olive-500/10 flex justify-center items-center gap-2"
+                            >
+                                <i class="fa-regular fa-calendar-check text-sm"></i>
+                                <span>Verify & Secure Table Reservation</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Reservation Success Popup Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- Backdrop -->
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity bg-black/60 backdrop-blur-sm" onclick="closeModal()"></div>
+            
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <!-- Modal Body content card -->
+            <div class="inline-block px-8 py-10 overflow-hidden text-center align-middle transition-all transform bg-white shadow-2xl rounded-3xl sm:my-8 sm:align-middle sm:max-w-md sm:w-full border border-olive-100">
+                <div class="w-16 h-16 bg-olive-100 text-olive-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                
+                <h3 class="font-serif text-2xl font-semibold text-cream-900 mb-2" id="modal-title">Table Confirmed!</h3>
+                <p class="text-sm text-gray-500 mb-6 font-light">
+                    We have successfully reserved your space. A detailed confirmation alongside our seasonal menu preview has been delivered to your email.
+                </p>
+
+                <!-- Detailed summary dynamic list -->
+                <div class="bg-olive-50 p-4 rounded-2xl border border-olive-100 text-left space-y-2 text-xs text-olive-800 mb-8 font-medium">
+                    <div class="flex justify-between">
+                        <span>Reserved For:</span>
+                        <span id="summaryName" class="font-bold text-cream-900">-</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Date & Time:</span>
+                        <span id="summaryDateTime" class="font-bold text-cream-900">-</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Guests Count:</span>
+                        <span id="summaryGuests" class="font-bold text-cream-900">-</span>
+                    </div>
+                </div>
+
+                <button onclick="closeModal()" class="w-full py-3 bg-olive-500 hover:bg-olive-600 text-white rounded-xl text-sm font-semibold tracking-wide transition-all duration-200">
+                    Wonderful, see you soon!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botanic Newsletter Sign-Up Banner -->
+    <section class="py-16 bg-white border-t border-olive-100">
+        <div class="max-w-4xl mx-auto px-6 text-center space-y-6">
+            <span class="text-olive-600 text-xs font-bold uppercase tracking-widest block"><i class="fa-solid fa-envelope-open-text mr-2"></i>THE BOTANICAL TELEGRAM</span>
+            <h2 class="font-serif text-3xl md:text-4xl text-cream-900">Receive Culinary Insights & Secret Table Booking Invites</h2>
+            <p class="text-gray-500 text-sm max-w-lg mx-auto font-light leading-relaxed">
+                Join our private garden guild mailing group to access recipes, exclusive seating event schedules, and priority holiday table holds.
+            </p>
+            
+            <form onsubmit="handleNewsletterSubmit(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    required 
+                    id="newsletterEmail"
+                    placeholder="Enter your email address" 
+                    class="flex-1 px-4 py-3 rounded-full border border-olive-200 focus:outline-none focus:ring-2 focus:ring-olive-400 bg-cream-50/50 text-sm"
+                />
+                <button type="submit" class="px-6 py-3 bg-olive-500 hover:bg-olive-600 text-white rounded-full text-sm font-medium transition-colors tracking-wide shrink-0">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-cream-900 text-white/80 py-16 font-light text-sm relative border-t border-cream-900">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <a href="#" class="inline-flex items-center space-x-2 text-white">
+                    <span class="font-serif text-2xl font-semibold tracking-wide">TILIA</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-olive-400"></span>
+                </a>
+                <p class="text-white/60 text-xs leading-relaxed">
+                    A peaceful dining garden designed to nurture both your visual appreciation of botanical styling and your appetite for artisan-crafted, authentic pastas.
+                </p>
+                <div class="flex space-x-4 text-white/50 text-base pt-2">
+                    <a href="#" class="hover:text-olive-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-olive-400 transition-colors"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#" class="hover:text-olive-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="hover:text-olive-400 transition-colors"><i class="fa-brands fa-yelp"></i></a>
+                </div>
+            </div>
+
+            <!-- Operational Hours Column -->
+            <div class="space-y-4">
+                <h4 class="font-serif font-semibold text-white tracking-wide text-base">Opening Hours</h4>
+                <ul class="space-y-2 text-xs text-white/60">
+                    <li>Tuesday – Thursday: 11:30 AM – 9:00 PM</li>
+                    <li>Friday – Saturday: 11:30 AM – 10:30 PM</li>
+                    <li>Sunday Brunch: 9:00 AM – 3:30 PM</li>
+                    <li class="text-olive-300 font-medium">Mondays: Closed for Culinary Development</li>
+                </ul>
+            </div>
+
+            <!-- Useful Quicklinks Column -->
+            <div class="space-y-4">
+                <h4 class="font-serif font-semibold text-white tracking-wide text-base">Discover More</h4>
+                <ul class="space-y-2 text-xs text-white/60">
+                    <li><a href="#about" class="hover:text-white transition-colors">Our Design Narrative</a></li>
+                    <li><a href="#menu" class="hover:text-white transition-colors">Allergen & Diet Sheet</a></li>
+                    <li><a href="#reserve" class="hover:text-white transition-colors">Private Dining & Events</a></li>
+                    <li><a href="#testimonials" class="hover:text-white transition-colors">Client Testimonials</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Social Details -->
+            <div class="space-y-4">
+                <h4 class="font-serif font-semibold text-white tracking-wide text-base">Get in Touch</h4>
+                <p class="text-xs text-white/60 leading-relaxed">
+                    Have questions about our sustainable ingredients or botanical styling guides? Our door is always open.
+                </p>
+                <a href="mailto:concierge@tiliabistro.com" class="inline-block text-xs font-bold text-olive-300 hover:text-white transition-colors underline decoration-dotted">
+                    concierge@tiliabistro.com
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mt-12 pt-8 border-t border-white/10 text-center text-xs text-white/40 flex flex-col sm:flex-row justify-between gap-4">
+            <p>© 2026 Tilia Garden & Bistro. All rights reserved.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set up the sticky interactive Header transparent -> white transition effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.remove('bg-transparent', 'py-5');
+                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+            } else {
+                navbar.classList.add('bg-transparent', 'py-5');
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-3');
+            }
+        });
+
+        // Mobile drawer toggling logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileDrawer.classList.contains('translate-x-0');
+            if (isOpen) {
+                // Close Drawer
+                mobileDrawer.classList.remove('translate-x-0');
+                mobileDrawer.classList.add('translate-x-full');
+                // Animate bars back to normal
+                bar1.classList.remove('rotate-45', 'translate-y-1.5');
+                bar2.classList.remove('opacity-0');
+                bar3.classList.remove('-rotate-45', '-translate-y-1.5');
+            } else {
+                // Open Drawer
+                mobileDrawer.classList.add('translate-x-0');
+                mobileDrawer.classList.remove('translate-x-full');
+                // Animate bars to X
+                bar1.classList.add('rotate-45', 'translate-y-1.5');
+                bar2.classList.add('opacity-0');
+                bar3.classList.add('-rotate-45', '-translate-y-1.5');
+            }
+        });
+
+        // Close drawer immediately when selecting mobile links
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileDrawer.classList.remove('translate-x-0');
+                mobileDrawer.classList.add('translate-x-full');
+                bar1.classList.remove('rotate-45', 'translate-y-1.5');
+                bar2.classList.remove('opacity-0');
+                bar3.classList.remove('-rotate-45', '-translate-y-1.5');
+            });
+        });
+
+        // Menu dynamic tab filter switcher logic
+        function filterMenu(category, clickedButton) {
+            // Update active states on tab action buttons
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-olive-500', 'text-white', 'shadow-sm');
+                btn.classList.add('text-olive-800', 'hover:text-olive-900');
+            });
+
+            clickedButton.classList.remove('text-olive-800', 'hover:text-olive-900');
+            clickedButton.classList.add('bg-olive-500', 'text-white', 'shadow-sm');
+
+            // Hide/Show items based on metadata selection tags
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                // Add scale out/in visual smoothness animation
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                
+                setTimeout(() => {
+                    if (category === 'all' || itemCategory === category) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }, 200);
+            });
+        }
+
+        // Handle Reservation Form Submit & Custom Confirmation Pop-up
+        function handleReservationSubmit(event) {
+            event.preventDefault(); // Stop raw refresh
+
+            // Gather elements input data
+            const name = document.getElementById('resName').value;
+            const date = document.getElementById('resDate').value;
+            const time = document.getElementById('resTime').value;
+            const guests = document.getElementById('resGuests').value;
+
+            // Apply values straight to Summary block inside modal popup card
+            document.getElementById('summaryName').textContent = name;
+            document.getElementById('summaryDateTime').textContent = `${date} at ${time}`;
+            document.getElementById('summaryGuests').textContent = `${guests} Guests`;
+
+            // Display popup container card
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('hidden');
+
+            // Clear inputs elegantly
+            document.getElementById('reservationForm').reset();
+        }
+
+        // Close Pop-up confirmation
+        function closeModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('hidden');
+        }
+
+        // Newsletter form toast notification mock (using modern embedded alerts)
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('newsletterEmail');
+            
+            // Create nice custom bottom banner overlay
+            const alertBox = document.createElement('div');
+            alertBox.className = "fixed bottom-5 right-5 z-50 bg-olive-600 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 animate-slide-in transform translate-y-0 transition-transform duration-300";
+            alertBox.innerHTML = `
+                <i class="fa-solid fa-circle-check text-xl"></i>
+                <div>
+                    <h5 class="font-serif font-bold text-sm">Successfully Subscribed!</h5>
+                    <p class="text-xs text-white/80">Thank you for joining our private dining circle.</p>
+                </div>
+            `;
+            document.body.appendChild(alertBox);
+
+            // Clear input field values
+            emailInput.value = '';
+
+            // Auto delete notification banner after 4 seconds smoothly
+            setTimeout(() => {
+                alertBox.classList.add('translate-y-20', 'opacity-0');
+                setTimeout(() => alertBox.remove(), 300);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
